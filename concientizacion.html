@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>ChiapasVerde</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conozca el impacto de los incendios forestales y cómo proteger nuestros bosques.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/style.min.css" rel="stylesheet">
+    <style>
+
+
+        /* Sección de Conciencia */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title h4 {
+            color: #81c784;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 0 0 45%;
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card h4 {
+            color: #81c784;
+            margin-bottom: 10px;
+        }
+
+        /* Tarjetas de Concientización */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 20px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .flip-card-front {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flip-card-back {
+            background-color: #81c784;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Galería de imágenes */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-image:image('img/bosques.jpg');
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .footer h4 {
+            margin: 0 0 10px;
+            font-weight: 700;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .input-group input {
+            border: none;
+            padding: 15px;
+            font-size: 1em;
+            border-radius: 5px 0 0 5px;
+            width: 300px;
+        }
+
+        .input-group button {
+            background-color: #004d40;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-group button:hover {
+            background-color: #005b47;
+        }
+
+        .page-header {
+    background-image: url('img/forest-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con opacidad del 50% */
+    z-index: 1; /* Envía el fondo detrás del texto */
+}
+
+.page-header h1, .page-header p {
+    position: relative; /* Asegura que el texto esté encima del pseudo-elemento */
+    z-index: 2; /* Envía el texto encima del fondo */
+}
+
+    </style>
+</head>
+
+<body>
+     <!-- Navbar Start -->
+     <div class="container-fluid p-0 nav-bar">
+        <div class="container-fluid p-0 nav-bar">
+            <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+                <a href="index.html" class="navbar-brand px-lg-4 m-0">
+                    <h6 class="m-0 display-4 text-uppercase text-white" style="font-size: 24px;">Chiapas Verde</h6>
+                </a>           
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="index.html" class="nav-item nav-link active">Inicio</a>
+                    <a href="about.html" class="nav-item nav-link">Acerca</a>
+                    <a href="service.html" class="nav-item nav-link">Soluciones</a>
+                    <a href="concientizacion.html" class="nav-item nav-link">Concientización</a>
+                    <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                </div>
+            </nav>
+        </div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase"></h1>
+            <h2 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase" style="color: aliceblue;">CONCIENTIZACIÓN DE INCENDIOS FORESTALES</h2>
+            <div class="d-inline-flex mb-lg-5">
+                <p class="m-0 text-white"><a class="text-white" href=""></a></p>
+                <p class="m-0 text-white px-2"></p>
+                <p class="m-0 text-white"></p>
+            </div>
+        </div>
+    </div>>
+
+    <!-- Conciencia Section Start -->
+    <div class="container-fluid section">
+        <div class="section-title">
+            <h4>Conciencia y Prevención</h4>
+            <h1>Los Incendios Forestales y Tú</h1>
+        </div>
+        <div class="section-content">
+            <div class="info-card">
+                <h4>¿Por Qué es Importante?</h4>
+                <p>Los incendios forestales destruyen flora y fauna, impactan en la calidad del aire y contribuyen al cambio climático. Proteger los bosques ayuda a preservar la biodiversidad y mantener los ecosistemas en equilibrio.</p>
+            </div>
+            <div class="info-card">
+                <h4>Prevención</h4>
+                <p>La educación y la conciencia son claves para prevenir incendios forestales. Es importante conocer las regulaciones locales y reportar actividades sospechosas en áreas forestales.</p>
+            </div>
+            <div class="info-card">
+                <h4>Cómo Actuar</h4>
+                <p>Si te encuentras en un área afectada, mantén la calma y sigue las instrucciones de las autoridades. Nunca intentes combatir el fuego por tu cuenta.</p>
+            </div>
+            <div class="info-card">
+                <h4>Señales de Alerta</h4>
+                <p> Es importante estar atento a las condiciones de sequedad y calor, y a las alertas de incendios emitidas por las autoridades.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Conciencia Section End -->
+</section>
+    <!-- Tarjetas de Concientización Start -->
+    <div class="container-fluid section">
+        <div class="section-title">
+            <h4>Tarjetas de Concientización</h4>
+            <h1>Aprende y Comparte</h1>
+        </div>
+        <div class="gallery">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Reduce, Reutiliza, Recicla</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Adopta prácticas sostenibles en tu hogar. Reducir el consumo y reciclar ayuda a proteger el medio ambiente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Cuida Tu Entorno</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Participa en limpiezas de áreas verdes y reporta quemas ilegales. Juntos podemos hacer la diferencia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h4>Educación Ambiental</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Infórmate y educa a otros sobre la importancia de conservar nuestros bosques y la vida silvestre.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tarjetas de Concientización End -->
+
+    <!-- Galería de Imágenes Start -->
+    <div class="container-fluid section">
+        <div class="section-title">
+            <h4>Galería de Imágenes</h4>
+            <h1>Belleza Natural</h1>
+        </div>
+        <div class="gallery">
+            <img src="img/img2.jpg" alt="Bosque 1">
+            <img src="img/img3.jpg" alt="Bosque 2">
+            <img src="img/img4.jpg" alt="Bosque 3">
+            <img src="img/img5.jpg" alt="Bosque 4">
+            <img src="img/img6.jpg" alt="Bosque 5">
+        </div>
+    </div>
+    <!-- Galería de Imágenes End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Nuestros Datos</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Chiapas, MEX</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i>chiapasverde@mail.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Nuestras Redes</h4>
+               
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+           
+        </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="mb-2 text-white">&copy; Todos los Derechos Reservados.</a></p>
+            <p class="m-0 text-white">Universidad Autonoma de Chiapas</p>
+        </div>
+    </div>
+    <!-- Footer End -->    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
